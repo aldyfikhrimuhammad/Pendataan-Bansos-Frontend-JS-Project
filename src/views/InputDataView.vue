@@ -7,35 +7,115 @@
         <div class="col-4 accent d-inline-block rounded-tr-lg"></div>
       </div>
     </div>
-    <div class="mx-auto my-auto" style="max-width: 800; background-color: #ddd">
-      <h1>Pendataan Bansos</h1>
+    <div class="mx-auto my-auto rounded px-5" style="max-width: 800; background-color: #ddd">
+      <h1 class="m-3">Pendataan Bansos</h1>
       <div>
-        <b-form @submit="onSubmit" @reset="onReset" v-if="show">
-          <b-form-group id="input-group-2" label="Nama" label-for="input-2">
-            <b-form-input id="input-2" v-model="form.name" :rules="[(v) => !!v || 'Nama wajib Diisi']" placeholder="Masukan Nama Lengkap" required></b-form-input>
-          </b-form-group>
+        <form class="needs-validation" novalidate>
+          <!-- Form Input Nama Lengkap -->
+          <div class="mb-3">
+            <label class="form-label">Nama</label>
+            <input type="text" class="form-control" v-model="nama" name="nama" :rules="[v => !!v || 'Nama wajib Diisi']" placeholder="Masukan Nama Lengkap" persistent-placeholder required />
+          </div>
 
-          <b-form-group id="input-group-2" label="Nama" label-for="input-2">
-            <b-form-input id="input-2" v-model="form.name" :rules="[(v) => !!v || 'Nama wajib Diisi']" placeholder="Masukan Nama Lengkap" required></b-form-input>
-          </b-form-group>
+          <!-- Form Input NIK -->
+          <div class="mb-3">
+            <label class="form-label">NIK</label>
+            <input type="text" class="form-control" v-model="nik" name="nik" :counter="16" @keypress="cekNumber" :rules="[v => !!v || 'NIK wajib diisi', rules.nik]" color="accent" placeholder="Contoh : 32112xxxxxxxxxxx" persistent-placeholder required />
+          </div>
 
-          <b-form-group id="input-group-3" label="Food:" label-for="input-3">
-            <b-form-select id="input-3" v-model="form.food" :options="foods" required></b-form-select>
-          </b-form-group>
+          <!-- Form Input Nomor KK -->
+          <div class="mb-3">
+            <label class="form-label">Nomor Kartu Keluarga</label>
+            <input type="text" class="form-control" v-model="noKK" name="kk" :counter="16" @keypress="cekNumber" :rules="[v => !!v || 'Nomor Kartu Keluarga wajib diisi', rules.kk]" placeholder="Contoh : 32113xxxxxxxxxxx" persistent-placeholder required />
+          </div>
 
-          <b-form-group id="input-group-4" v-slot="{ ariaDescribedby }">
-            <b-form-checkbox-group v-model="form.checked" id="checkboxes-4" :aria-describedby="ariaDescribedby">
-              <b-form-checkbox value="me">Check me out</b-form-checkbox>
-              <b-form-checkbox value="that">Check that out</b-form-checkbox>
-            </b-form-checkbox-group>
-          </b-form-group>
+          <!-- Form Input Umur -->
+          <div class="mb-3">
+            <label class="form-label">Umur</label>
+            <input type="text" class="form-control" v-model="umur" :rules="[v => !!v || 'Umur wajib diisi', rules.umur]" @keypress="cekNumber" placeholder="Minimal 25 Tahun" persistent-placeholder required />
+          </div>
 
-          <b-button type="submit" variant="primary">Submit</b-button>
-          <b-button type="reset" variant="danger">Reset</b-button>
-        </b-form>
-        <b-card class="mt-3" header="Form Data Result">
-          <pre class="m-0">{{ form }}</pre>
-        </b-card>
+          <!-- Form Input Jenis Kelamin -->
+          <div class="mb-3">
+            <label class="form-label mr-3">Jenis Kelamin : </label>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="jenisKelamin" id="jenisKelamin1" value="Laki-laki" v-model="jenisKelamin" :rules="[v => !!v || 'Jenis Kelamin wajib diisi']" required />
+              <label class="form-check-label" for="jenisKelamin1">Laki-laki</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="jenisKelamin" id="jenisKelamin2" value="Perempuan" v-model="jenisKelamin" :rules="[v => !!v || 'Jenis Kelamin wajib diisi']" required />
+              <label class="form-check-label" for="jenisKelamin2">Perempuan</label>
+            </div>
+          </div>
+
+          <!-- Form Input Alamat -->
+          <div class="mb-3">
+            <label class="form-label">Alamat</label>
+            <textarea class="form-control" v-model="alamat" name="alamat" :rules="[v => !!v || 'Alamat wajib diisi']" placeholder="Masukan Alamat Lengkap" persistent-placeholder required></textarea>
+          </div>
+
+          <!-- Form Input RT -->
+          <div class="mb-3">
+            <label class="form-label">RT</label>
+            <input type="text" class="form-control" v-model="rt" :rules="[v => !!v || 'RT wajib diisi', rules.rt]" @keypress="cekNumber" placeholder="Contoh : 001" persistent-placeholder required />
+          </div>
+
+          <!-- Form Input RW -->
+          <div class="mb-3">
+            <label class="form-label">RW</label>
+            <input type="text" class="form-control" v-model="rw" :rules="[v => !!v || 'RW wajib diisi', rules.rw]" @keypress="cekNumber" placeholder="Contoh : 004" persistent-placeholder required />
+          </div>
+
+          <!-- Form Input Penghasilan Sebelum Pandemi -->
+          <div class="mb-3">
+            <label class="form-label">Penghasilan Sebelum Pandemi</label>
+            <input type="text" class="form-control" v-model="penghasilanSebelumPandemi" :rules="[v => !!v || 'Penghasilan Sebelum Pandemi wajib diisi', rules.penghasilanSebelumPandemi]" @keypress="cekNumber" placeholder="Contoh : Rp. 1.000.000" persistent-placeholder required />
+          </div>
+
+          <!-- Form Input Penghasilan Setelah Pandemi -->
+          <div class="mb-3">
+            <label class="form-label">Penghasilan Setelah Pandemi</label>
+            <input type="text" class="form-control" v-model="penghasilanSetelahPandemi" :rules="[v => !!v || 'Penghasilan Setelah Pandemi wajib diisi', rules.penghasilanSetelahPandemi]" @keypress="cekNumber" placeholder="Contoh : Rp. 1.000.000" persistent-placeholder required />
+          </div>
+
+          <!-- Form Input Alasan Menerima Bantuan Use Select -->
+          <div class="mb-3">
+            <label class="form-label">Alasan Menerima Bantuan</label>
+            <select class="form-control" v-model="alasanTerpilih"
+            :items="alasanList"
+            :rules="[(v) => !!v || 'Alasan wajib diisi']"
+            label="Alasan membutuhkan bantuan"
+            placeholder="Pilih salah satu"
+            :menu-props="{ overflowX: true }"
+            attach
+            persistent-placeholder
+            auto
+            required>
+            </select>
+
+            <div class="invalid-feedback">
+              Alasan wajib diisi
+            </div>
+          </div>
+
+          <!-- Form Input Foto KTP -->
+          <div class="mb-3">
+            <label class="form-label">Foto KTP</label>
+            <input type="file" class="form-control"  name="fotoKTP" :rules="[v => !!v || 'Foto KTP wajib diisi']" placeholder="Masukan Foto KTP" persistent-placeholder required />
+          </div>
+
+          <!-- Form Input Foto KK -->
+          <div class="mb-3">
+            <label class="form-label">Foto Kartu Keluarga</label>
+            <input type="file" class="form-control" name="fotoKK" :rules="[v => !!v || 'Foto Kartu Keluarga wajib diisi']" placeholder="Masukan Foto Kartu Keluarga" persistent-placeholder required />
+          </div>
+
+          <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
       </div>
     </div>
   </div>
@@ -43,18 +123,69 @@
 
 <script>
 export default {
-  data() {
-    return {
-      form: {
-        email: "",
-        name: "",
-        food: null,
-        checked: [],
-      },
-      foods: [{ text: "Select One", value: null }, "Carrots", "Beans", "Tomatoes", "Corn"],
-      show: true,
-    };
+  data: () => ({
+    valid: true,
+    loadingButton: false,
+    nama: "",
+    nik: "",
+    noKK: "",
+    fotoKTP: null,
+    fotoKK: null,
+    umur: "",
+    alamat: "",
+    jenisKelamin: "",
+    RT: "",
+    RW: "",
+    PengSebelumPandemi: "",
+    PengSetelahPandemi: "",
+    alasanTerpilih: null,
+    alasanLainnya: "",
+    alasanList: ["Kehilangan Pekerjaan", "Kepala keluarga terdampak atau korban Covid", "Tergolong fakir/miskin semenjak sebelum Covid", "Lainnya"],
+    check: false,
+    messagesFoto: ["Foto tidak boleh lebih dari 2MB", "Format file PNG/JPG/JPEG/BMP"],
+    rules: {
+      photoSize: (v) => !v || v.size <= 2000000 || "Ukuran file terlalu besar",
+      photoType: (v) => !v || ["image/png", "image/jpeg", "image/jpeg", "image/bmp"].indexOf(v.type) >= 0 || "Format file salah",
+      umur: (v) => (v && v >= 25) || "Umur harus 25 atau keatas",
+      nik: (v) => (v && v.length == 16) || "NIK harus berjumlah 16 digit",
+      kk: (v) => (v && v.length == 16) || "Nomor KK harus berjumlah 16 digit",
+      alamat: (v) => (v && v.length <= 255) || "Alamat tidak boleh lebih dari 255 karakter",
+    },
+  }),
+
+  computed: {
+    statusKTP() {
+      return this.$refs.ktp;
+    },
+    statusKK() {
+      return this.$refs.kk;
+    },
+    inputedData() {
+      return {
+        nama: this.nama,
+        nik: this.nik,
+        noKK: this.noKK,
+        fotoKTP: this.fotoKTP,
+        fotoKK: this.fotoKK,
+        umur: this.umur,
+        alamat: this.alamat,
+        jenisKelamin: this.jenisKelamin,
+        RT: this.RT,
+        RW: this.RW,
+        PengSebelumPandemi: this.PengSebelumPandemi,
+        PengSetelahPandemi: this.PengSetelahPandemi,
+        alasan: this.alasan,
+      };
+    },
+    alasan() {
+      if (this.alasanTerpilih && this.alasanTerpilih == "Lainnya") {
+        return this.alasanLainnya;
+      }
+
+      return this.alasanTerpilih;
+    },
   },
+
   methods: {
     onSubmit(event) {
       event.preventDefault();
@@ -63,15 +194,82 @@ export default {
     onReset(event) {
       event.preventDefault();
       // Reset our form values
-      this.form.email = "";
-      this.form.name = "";
-      this.form.food = null;
-      this.form.checked = [];
+      this.nama = "";
+      this.food = null;
+      this.checked = [];
       // Trick to reset/clear native browser form validation state
       this.show = false;
       this.$nextTick(() => {
         this.show = true;
       });
+    },
+    sleep(ms) {
+      return new Promise((resolve) => setTimeout(resolve, ms));
+    },
+
+    randomNumber(min, max) {
+      return Math.random() * (max - min) + min;
+    },
+
+    async submit() {
+      if (this.$refs.form.validate()) {
+        let time = Math.floor(this.randomNumber(1400, 1600));
+        console.log({
+          responseTime: time,
+          data: this.inputedData,
+        });
+        this.loadingButton = true;
+        await this.sleep(time);
+        if (time >= 1500) {
+          this.loadingButton = false;
+          this.setDialogStatus(true);
+        } else {
+          this.loadingButton = false;
+          this.$router.push({
+            name: "Info",
+            params: {
+              savedForm: true,
+            },
+          });
+        }
+      }
+    },
+
+    cekKTP() {
+      if (this.statusKTP.validate()) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          this.fotoKTPPreview = e.target.result;
+        };
+        reader.readAsDataURL(this.fotoKTP);
+      } else {
+        this.fotoKTPPreview = "https://via.placeholder.com/150x150?text=KK";
+      }
+    },
+
+    cekKK() {
+      if (this.statusKK.validate()) {
+        const reader = new FileReader();
+
+        reader.onload = (e) => {
+          this.fotoKKPreview = e.target.result;
+        };
+        reader.readAsDataURL(this.fotoKK);
+      } else {
+        this.fotoKKPreview = "https://via.placeholder.com/150x150?text=KK";
+      }
+    },
+
+    cekNumber(event) {
+      if ((event.which != 8 && event.which != 0 && event.which < 48) || event.which > 57) {
+        event.preventDefault();
+      }
+
+      if (event.target.name == "nik" || event.target.name == "kk") {
+        if (event.target.value.length >= 16) {
+          event.preventDefault();
+        }
+      }
     },
   },
 };
