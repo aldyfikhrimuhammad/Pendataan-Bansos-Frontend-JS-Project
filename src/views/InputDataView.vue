@@ -1,16 +1,9 @@
 <template>
-  <div class="container">
-    <div class="header">
-      <div class="header-content">
-        <div class="col-4 primary d-inline-block rounded-tl-lg"></div>
-        <div class="col-4 secondary d-inline-block"></div>
-        <div class="col-4 accent d-inline-block rounded-tr-lg"></div>
-      </div>
-    </div>
-    <div class="mx-auto my-auto rounded px-5" style="max-width: 800; background-color: #ddd">
+  <div class="container" style="border: 1px solid blue">
+    <div class="rounded" style="max-width: 700; background-color: #ddd; border: 1px solid red; margin: 50px; padding: 25px 50px;">
       <h1 class="m-3">Pendataan Bansos</h1>
       <div>
-        <form class="needs-validation" novalidate>
+        <form class="needs-validation" novalidate style="border: 1px solid blue">
           <!-- Form Input Nama Lengkap -->
           <div class="mb-3">
             <label class="form-label">Nama</label>
@@ -110,16 +103,46 @@
             <input type="file" class="form-control" name="fotoKK" :rules="[v => !!v || 'Foto Kartu Keluarga wajib diisi']" placeholder="Masukan Foto Kartu Keluarga" persistent-placeholder required />
           </div>
 
-          <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1" />
-            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+          <!-- Form Input Checkbox -->
+          <div class="mb-3">
+            <label class="form-label">Saya menyetujui <a href="">Syarat dan Ketentuan</a></label>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" v-model="setuju" :rules="[v => !!v || 'Saya menyetujui wajib diisi']" required />
+              <label class="form-check-label" for="setuju">
+                Saya menyetujui
+              </label>
+            </div>
           </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
+
+          <!-- Create Button Submit -->
+          <button class="btn btn-primary" type="submit">Submit</button>
+
+
+
         </form>
       </div>
     </div>
   </div>
 </template>
+
+<style>
+form {
+  max-width: 500px;
+  margin: 0 auto;
+}
+h1 {
+  text-align: center;
+  font-weight: bolder;
+  text-shadow: 2px 2px 4px #000000;
+}
+.form-label {
+  font-weight: bolder;
+  border: 1px solid red;
+}
+.form-control {
+  border: 1px solid green;
+}
+</style>
 
 <script>
 export default {
