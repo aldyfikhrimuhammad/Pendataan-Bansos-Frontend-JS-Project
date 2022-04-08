@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home" style="border: 1px solid red;">
     <div>
   <b-jumbotron text-variant="dark" class="jumbotron">
   <img src="data-bansos/src/assets/LogoJabar.png" alt="Logo Provinsi Jawa Barat" width="250" height="250">
@@ -16,14 +16,16 @@
 </template>
 
 <style>
-.jumbotron {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/src/assets/background.jpg");
+.home {
+  background-image: url("/src/assets/background.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
-  height: 100vh;
   width: 100%;
+}
+.jumbotron {
+  background-color: transparent;
 }
 .buttonHome:hover {
   transform: translate(5px, 5px);
