@@ -1,4 +1,4 @@
-# Tugas Project 3 Pendataan Bansos (Frontend JS Project)
+# Pendataan Bansos (Project 3)
 
 <table style="border:none;">
     <tr>
@@ -12,40 +12,28 @@
         <td>VueJS</td>
     </tr>
     <tr>
-        <td>Link Website</td>
+        <td>Link Deployment</td>
         <td>:</td>
         <td>
-            <a href="https://angaihimitsu.github.io/Tugas-Project-3-Pendataan-Bansos-Frontend-JS-Project/" target="_blank" rel="noopener">Link</a>
+            <a href="" target="_blank" rel="noopener">Link</a>
         </td>
     </tr>
 </table>
 
-## Tentang Layout/Desain
+# Desain Layout
 
-Desain yang saya buat sangat sederhana, sedikit warna dan tidak memiliki pola atau gambar, dengan harapan supaya mudah digunakan oleh orang awam terutama orang awan usia 40-50 tahun. Desain sekilas mirip dengan google form namun saya modifikasi dibeberapa bagian dan agar sesuai dengan panduan dari Jabar Design System yang telah di berikan di materi.
+Memiliki desain layout yang sederhana dengan pemilihan tone warna monokrom membuat tampilan tidak mencolok dan tidak menyakiti mata pengguna sehingga dapat diterima oleh seluruh pengguna dari berbagai umur sampai lansia sekalipun.
 
-### Kolom Input
+### Formulir
 
-Saya menggunakan jenis kolom input dengan posisi label berada diatas dan berukuran lebih kecil daripada Kolom Input, yang bertujuan supaya pengguna lebih mudah melihat mana kolom untuk diisi dan mana label.  
-Dalam mempermudah pengisian sama menggunakan placeholder yang berisikan contoh atau keterangan apa yang harus diisikan atau apa yang harus dilakukan pengguna untuk mengisi kolom tersebut.
+Dalam pembuatan formulir input data, saya menggunakan beberapa penataan gaya dan validasi seperti menggunakan placeholder agar dapat memberikan arahan kepada pengguna agar lebih jelas dalam memasukan data yang diminta  dan ketika pengguna salah/kurang tepat dalam menginputkan data maka akan muncul peringatan sehingga pengguna dapat memperbaiki input data yang kurang tepat.
 
-### Validasi Form
 
-Dalam memvalidasi form saya menggunakan validasi langsung dan tidak langsung :
+## Teknologi yang digunakan
 
-1. Validasi langsung, validasi langsung yang mana ketika data yang diinput kurang tepat maka kolom akan merespon dan memberitahukan apa kesalahannya dibawah kolom input yang sedang aktif.
-2. Validasti tidak langsung, validasi ini saya gunakan ketika pengguna menekan tombol simpan. Sistem akan melakukan validasi terhadap seluruh kolom input apakah sudah sesuai atau belum dan jika salah akan menampilkan informasi kesalahannya dibawah kolom input yang tidak sesuai.
-
-### Tipe Notifikasi:
-
-1. Tipe Dialog, saya menggunakan jenis ini untuk menampilkan informasi gagal menyimpan. Sebab, dengan jenis notifikasi ini akan memudahkan pengguna untuk menekan tombol simpan kembali.
-2. Tipe Pindah Halaman, saya menggunakan tipe ini pada saat data berhasil disimpan. Sebab, dengan begitu pengguna akan fokus dan mengetahui bahwa data yang tadi diinput telah disimpan tanpa terganggu dengan tampilan lainnya.
-
-## Dibuat Dengan
-
-Vue
+VueJS
 Vuetify
-
+BootstrapVue (Hanya sementara diawal Project)
 ## Project setup
 
 ```
