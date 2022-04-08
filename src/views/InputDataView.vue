@@ -185,18 +185,18 @@
             />
           </div>
           <div>
-          <div class="text-caption text--secondary font-weight-light font-italic d-flex mb-2" v-for="(message, index) in messagesFoto" :key="`message-${index}`">
-            <div><span v-for="(n, i) in index + 1" :key="i + 1">*</span></div>
-            <div>
-              <span>&nbsp;{{ message }}</span>
+            <div class="text-caption text--secondary font-weight-light font-italic d-flex mb-2" v-for="(message, index) in messagesFoto" :key="`message-${index}`">
+              <div><span v-for="(n, i) in index + 1" :key="i + 1">*</span></div>
+              <div>
+                <span>&nbsp;{{ message }}</span>
+              </div>
             </div>
           </div>
-        </div>
 
           <!-- Form Input Checkbox -->
           <div class="mb-3">
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" v-model="check" id="agreement" :rules="[(v) => !!v || 'Harap setujui untuk melanjutkan!']" :ripple="false" required/>
+              <input class="form-check-input" type="checkbox" v-model="check" id="agreement" :rules="[(v) => !!v || 'Harap setujui untuk melanjutkan!']" :ripple="false" required />
               <label class="form-check-label"> Saya menyatakan bahwa data yang diisikan adalah benar dan siap mempertanggungjawabkan apabila ditemukan ketidaksesuaian dalam data tersebut. </label>
             </div>
           </div>
@@ -205,8 +205,8 @@
 
           <!-- Create Button Submit -->
           <div class="text-center">
-          <button :disabled="!valid" :loading="loadingButton" elevation="3" class="mr-4 rounded submitButton" type="submit">Simpan</button>
-        </div>
+            <b-button pill variant="success" :disabled="!valid" :loading="loadingButton" elevation="3" class="mr-4 rounded submitButton" type="submit">Simpan</b-button>
+          </div>
         </form>
       </div>
     </div>
@@ -233,10 +233,12 @@ h1 {
   font-weight: 400;
 }
 .form-control {
-  border: 1px solid green;
+  background-color: #ffffff;
+  color: #000000;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
 }
 .dataSection {
-    background-image: url("/src/assets/background.jpg");
+  background-image: url("/src/assets/background.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -248,21 +250,20 @@ h1 {
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
 }
 .submitButton:hover {
-  background-color: #fafafa;
-  color: #000000;
-  transform: translateY(3px);
+  transform: translateY(5px) translateX(5px);
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
 }
 .uploadButton {
-  margin: 5px 20px 20px 10px;
-  background-color: #ffffff;
-  color: #000000;
+  margin: 10px 20px 20px 10px;
+  background-color: transparent;
+  color: #ddd;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+  border: transparent;
 }
 .uploadButton:hover {
   background-color: #fafafa;
   color: #000000;
-  transform: translateX(3px);
+  transform: translateX(3px) translateY(3px);
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
 }
 </style>
@@ -335,7 +336,6 @@ export default {
   },
 
   methods: {
-
     sleep(ms) {
       return new Promise((resolve) => setTimeout(resolve, ms));
     },
