@@ -1,9 +1,9 @@
 <template>
-  <div class="container" style="border: 1px solid blue">
-    <div class="rounded" style="max-width: 700; background-color: #ddd; border: 1px solid red; margin: 50px; padding: 25px 50px;">
+  <div class="container">
+    <div class="rounded dataSection">
       <h1 class="m-3">Pendataan Bansos</h1>
       <div>
-        <form class="needs-validation" novalidate style="border: 1px solid blue">
+        <form class="needs-validation" novalidate style="border: 1px solid blue; padding: 20px 50px;">
           <!-- Form Input Nama Lengkap -->
           <div class="mb-3">
             <label class="form-label">Nama</label>
@@ -92,24 +92,23 @@
           </div>
 
           <!-- Form Input Foto KTP -->
-          <div class="mb-3">
-            <label class="form-label">Foto KTP</label>
+          <div class="mb-3 d-flex">
+            <label class="form-label mt-2" style="width: 101px; text-align: left;">Foto KTP</label>
             <input type="file" class="form-control"  name="fotoKTP" :rules="[v => !!v || 'Foto KTP wajib diisi']" placeholder="Masukan Foto KTP" persistent-placeholder required />
           </div>
 
           <!-- Form Input Foto KK -->
-          <div class="mb-3">
-            <label class="form-label">Foto Kartu Keluarga</label>
+          <div class="mb-3 d-flex">
+            <label class="form-label mt-2" style="width: 100px; text-align: left">Foto KK</label>
             <input type="file" class="form-control" name="fotoKK" :rules="[v => !!v || 'Foto Kartu Keluarga wajib diisi']" placeholder="Masukan Foto Kartu Keluarga" persistent-placeholder required />
           </div>
 
           <!-- Form Input Checkbox -->
           <div class="mb-3">
-            <label class="form-label">Saya menyetujui <a href="">Syarat dan Ketentuan</a></label>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" v-model="setuju" :rules="[v => !!v || 'Saya menyetujui wajib diisi']" required />
-              <label class="form-check-label" for="setuju">
-                Saya menyetujui
+              <input class="form-check-input" type="checkbox" v-model="check"  :rules="[(v) => !!v || 'Harap setujui untuk melanjutkan!']" :ripple="false" required />
+              <label class="form-check-label">
+                Saya menyatakan bahwa data yang diisikan adalah benar dan siap mempertanggungjawabkan apabila ditemukan ketidaksesuaian dalam data tersebut.
               </label>
             </div>
           </div>
@@ -134,13 +133,23 @@ h1 {
   text-align: center;
   font-weight: bolder;
   text-shadow: 2px 2px 4px #000000;
+  color: #fff;
 }
 .form-label {
-  font-weight: bolder;
-  border: 1px solid red;
+  font-weight: 400;
+  color: #fff;
 }
 .form-control {
   border: 1px solid green;
+}
+.dataSection {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/src/assets/background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  width: 100%;
+  height: 100%;
 }
 </style>
 

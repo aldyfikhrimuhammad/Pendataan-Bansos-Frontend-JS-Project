@@ -36,10 +36,10 @@
     <router-view />
 
     <!-- Footer -->
-    <footer class="bg-light text-center text-white">
-      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+    <footer class="bg-light text-center text-black">
+      <div class="text-center p-3">
         © 2022 Copyright:
-        <a class="text-white" href="https://www.linkedin.com/in/aldyfikhrimuhammad/">Aldy Fikhri Muhammad</a>
+        <a class="text-dark" href="https://www.linkedin.com/in/aldyfikhrimuhammad/">Aldy Fikhri Muhammad</a>
       </div>
     </footer>
   </div>
