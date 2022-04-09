@@ -20,9 +20,9 @@
     </tr>
 </table>
 
-## Keterangan
+# Keterangan
 
-# Desain Layout
+### Desain Layout
 
 Memiliki desain layout yang sederhana dengan pemilihan tone warna monokrom membuat tampilan tidak mencolok dan tidak menyakiti mata pengguna sehingga dapat diterima oleh seluruh pengguna dari berbagai umur sampai lansia sekalipun.
 
