@@ -1,5 +1,5 @@
 <template>
-  <div class="container" style="border: 1px solid red; margin: 20px auto; padding: 25px">
+  <div class="container" style="margin: 20px auto; padding: 25px">
     <div class="rounded dataSection">
       <h1 class="m-3">Pendataan Bansos</h1>
       <div>
@@ -134,6 +134,7 @@
           <div class="mb-3">
             <label class="form-label">Alasan Membutuhkan Bantuan</label>
             <b-form-select
+              class="form-control mb-3"
               v-model="alasanTerpilih"
               :options="alasanList"
               :rules="[(v) => !!v || 'Alasan wajib diisi']"
@@ -197,7 +198,7 @@
           <div class="mb-3">
             <div class="form-check">
               <input class="form-check-input" type="checkbox" v-model="check" id="agreement" :rules="[(v) => !!v || 'Harap setujui untuk melanjutkan!']" :ripple="false" required />
-              <label class="form-check-label"> Saya menyatakan bahwa data yang diisikan adalah benar dan siap mempertanggungjawabkan apabila ditemukan ketidaksesuaian dalam data tersebut. </label>
+              <label class="form-check-label">Saya menyatakan bahwa data yang diisikan adalah benar dan siap mempertanggungjawabkan apabila ditemukan ketidaksesuaian dalam data tersebut.</label>
             </div>
           </div>
 
@@ -220,7 +221,7 @@ form {
 }
 h1 {
   text-align: center;
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: bolder;
   line-height: 1.2;
   margin-bottom: 3rem;
@@ -236,6 +237,11 @@ h1 {
   background-color: #ffffff;
   color: #000000;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 3rem;
+}
+.form-control:hover {
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
 }
 .dataSection {
   background-image: url("/src/assets/background.jpg");
@@ -243,14 +249,17 @@ h1 {
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
-  width: 100%;
+  width: 500px;
   height: 100%;
+  margin: 0 auto;
+  border-radius: 25px;
+  padding: 1rem;
 }
 .submitButton {
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
 }
 .submitButton:hover {
-  transform: translateY(5px) translateX(5px);
+  transform: translateY(-5px);
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
 }
 .uploadButton {
