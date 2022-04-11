@@ -15,7 +15,7 @@
         <td>Link Deployment</td>
         <td>:</td>
         <td>
-            <a href="" target="_blank" rel="noopener">Link</a>
+            <a href="https://pendataan-bansos-01.netlify.app/" target="_blank" rel="noopener">Link</a>
         </td>
     </tr>
 </table>
