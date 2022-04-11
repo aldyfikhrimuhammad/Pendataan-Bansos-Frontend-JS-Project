@@ -15,12 +15,14 @@
         <td>Link Deployment</td>
         <td>:</td>
         <td>
-            <a href="" target="_blank" rel="noopener">Link</a>
+            <a href="https://pendataan-bansos-01.netlify.app/" target="_blank" rel="noopener">Link</a>
         </td>
     </tr>
 </table>
 
-# Desain Layout
+# Keterangan
+
+### Desain Layout
 
 Memiliki desain layout yang sederhana dengan pemilihan tone warna monokrom membuat tampilan tidak mencolok dan tidak menyakiti mata pengguna sehingga dapat diterima oleh seluruh pengguna dari berbagai umur sampai lansia sekalipun.
 
